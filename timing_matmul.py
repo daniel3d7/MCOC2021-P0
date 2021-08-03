@@ -18,3 +18,5 @@ dt = t2 - t1
 
 print(f"dt = {dt} s")
 
+print ("Utilizando la funcion matmul:") 
+print ("AB =", np.matmul(A,B))
