@@ -37,9 +37,9 @@ plt.title("Rendimiento A@B")
 plt.ylabel("Tiempo transcurrido (s)")
 
 
-for run in tiempo:
-    plt.loglog(largo[0],run)
-    plt.plot(largo[0],run,marker='o')
+for Z in tiempo:
+    plt.loglog(largo[0],Z)
+    plt.plot(largo[0],Z,marker='o')
 plt.yticks(y_time, y_labels)
 plt.xticks(x,[],rotation = 70)
 plt.grid()
