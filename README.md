@@ -56,4 +56,5 @@ Estoy usando Numpy 1.19.2
 Durante la ejecución de su código ¿se utiliza más de un procesador? Muestre una imagen (screenshot) de su uso de procesador durante alguna corrida para confirmar.
 A continuación, se presenta una imagen que muestra el uso del procesador, donde se ven los 4 núcleos y su actividad.
 
+SE ADJUNTA FOTOS DE CPU NUCLEOS EN REPOSITORIO.
 
