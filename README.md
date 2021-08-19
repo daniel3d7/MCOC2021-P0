@@ -73,9 +73,10 @@ Libreria Scipy : Ejecutado con scypy.linalg.inv(), tambien utiliza Lapack pero e
 
 ¿Cómo incide el paralelismo y la estructura de caché de su procesador en el desempeño en cada caso? Justifique su comentario en base al uso de procesadores y memoria observado durante las corridas.
 
-Analizando los graficos obtenidos , se ve que el half toma menos tiempo en invertir la matriz, dado que tiene datos más pequeños que los single, double y longdouble. Estos cambios en el tiempo entre estos tipos es debido al paralelismo, en donde el procesador ejecuta varias tareas al mismo tiempo, realizando varios cálculos simultáneamente. Esto se verifica al revisar el uso de memoria en la ejecucion de cada uno de los codigos, teniendo en cuenta que el pc mientras realiza las operaciones, al mismo tiempo de manera paralela ejecuta ciertos procesos externos a python gracias a la memoria cache y al paralelismo 
+Analizando los graficos obtenidos , se ve que el half toma menos tiempo en invertir la matriz, dado que tiene datos más pequeños que los single, double y longdouble. Estos cambios en el tiempo entre estos tipos es debido al paralelismo, en donde el procesador ejecuta varias tareas al mismo tiempo, realizando varios cálculos simultáneamente. Esto se verifica al revisar los graficos adjuntados a continuacion donde se presencia el uso de memoria en la ejecucion de cada uno de los codigos, teniendo en cuenta que el pc mientras realiza las operaciones, al mismo tiempo de manera paralela ejecuta ciertos procesos externos a python gracias a la memoria cache y al paralelismo.
 
 
+![Foto Nucleos](https://user-images.githubusercontent.com/88356329/129996790-632731ce-807a-4965-96af-5e306f887bf5.png)
 
 
 
