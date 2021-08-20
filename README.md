@@ -79,4 +79,25 @@ Analizando los graficos obtenidos , se ve que el half toma menos tiempo en inver
 ![Foto Nucleos](https://user-images.githubusercontent.com/88356329/129996790-632731ce-807a-4965-96af-5e306f887bf5.png)
 
 
+# Desempeño de Solve y Eigh (Entrega 4)
 
+
+
+
+
+
+Haga un comentario completo respecto de todo lo que ve en términos de desempeño en cada problema.
+Desempeño timing solve: para este caso se logo generar una matriz máxima de 2000x2000, no se ogra llegar a una de 10000x10000 ya que el rendimiento de mi computador no permite que esto ocurra en menos de 2 minutos.
+Desempeño timing eigh float y double: para este caso se logo generar una matriz máxima de 800x800, no se ogra llegar a una de 10000x10000. Se puede ver que este es más rápido que el desempeño de eigh double.
+¿Como es la variabilidad del tiempo de ejecución para cada algoritmo?
+Tiene un incremento exponencial a medida que aumentan las matrices.
+¿Qué algoritmo gana (en promedio) en cada caso?
+Desempeño timing solve: A_invB_soSolve_pos, la cual es la matriz definida positiva.
+Desempeño timing eigh float: A_eigh_caso_5_T la cual tiene overwrite_a=True y driver="evd"
+Desempeño timing eigh double: : A_eigh_caso_7_T la cual tiene overwrite_a=True y driver="evr
+¿Depende del tamaño de la matriz?
+Si depende del tamaño de la matriz, ya que a mayor matriz el desempeño será “peor”.
+¿A que se puede deber la superioridad de cada opción?
+Se debe a la cantidad de acciones que se le pide a cada opción, las cuales difieren del set up por default.
+¿Su computador usa más de un proceso por cada corrida?
+Si, utiliza los cuatro procesadores.
