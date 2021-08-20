@@ -81,11 +81,19 @@ Analizando los graficos obtenidos , se ve que el half toma menos tiempo en inver
 
 # Desempeño de Solve y Eigh (Entrega 4)
 
-Se entregan resultados expuestos en los distintos graficos de tiempo:
+PARTE A
+
+Se entregan resultados expuestos en los distintos graficos de tiempo utilizando datos tipo float:
 ![Graficos Generales Parte A](https://user-images.githubusercontent.com/88356329/130281495-8b88d9c2-2297-48cf-ac62-b87d5d53eebd.png)
 
+Al realizar un analisis de los graficos obtenidos en el apartado A, podemos concluir que el proceso que mas tardo fue el primer caso donde se utilizo el scipy.linalg.solve con los parametros por defecto, por otro lado al emplear los parametros se obtienen mejores resultados disminuyendo altamente los tiempos de procesamiento de resultados, donde en el caso de mi computador el caso 3 utilizando el parametro asumme_a = "pos", fue el con mejores resultados, con tiempos de respuesta menores a 10 segundos.
 
+PARTE B 
 
+Se entregan resultados expuestos en los distintos graficos de tiempo utilizando datos tipo float:
+![Grafico General Parte B (float)](https://user-images.githubusercontent.com/88356329/130283653-17869ea6-5f1a-4140-922b-6be36516e46b.png)
+
+En el caso de analisis de graficos obtenidos en el apartado B, podemos concluir que el proceso que mas tardo fue en el segundo caso y tercer grafico donde se utilizaron driver "ev" con tiempos de carga superiores a los 18 segundos en el caso de matrices de 4000X4000, por otro lado al emplear el overwrite_a = False se obtuvieron mejores resultados disminuyendo levemente los tiempos de procesamiento con respecto al overwrite_a = True.
 
 
 
