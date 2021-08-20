@@ -81,7 +81,9 @@ Analizando los graficos obtenidos , se ve que el half toma menos tiempo en inver
 
 # Desempeño de Solve y Eigh (Entrega 4)
 
-Se entregan resultados expuestos en los distintos graficos de tiempo.![Graficos Generales Parte A](https://user-images.githubusercontent.com/88356329/130281495-8b88d9c2-2297-48cf-ac62-b87d5d53eebd.png)
+Se entregan resultados expuestos en los distintos graficos de tiempo:
+![Graficos Generales Parte A](https://user-images.githubusercontent.com/88356329/130281495-8b88d9c2-2297-48cf-ac62-b87d5d53eebd.png)
+
 
 
 
