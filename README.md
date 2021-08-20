@@ -76,6 +76,7 @@ Libreria Scipy : Ejecutado con scypy.linalg.inv(), tambien utiliza Lapack pero e
 Analizando los graficos obtenidos , se ve que el half toma menos tiempo en invertir la matriz, dado que tiene datos más pequeños que los single, double y longdouble. Estos cambios en el tiempo entre estos tipos es debido al paralelismo, en donde el procesador ejecuta varias tareas al mismo tiempo, realizando varios cálculos simultáneamente. Esto se verifica al revisar los graficos adjuntados a continuacion donde se presencia el uso de memoria en la ejecucion de cada uno de los codigos, teniendo en cuenta que el pc mientras realiza las operaciones, al mismo tiempo de manera paralela ejecuta ciertos procesos externos a python gracias a la memoria cache y al paralelismo.
 
 
+
 ![Foto Nucleos](https://user-images.githubusercontent.com/88356329/129996790-632731ce-807a-4965-96af-5e306f887bf5.png)
 
 
@@ -93,22 +94,15 @@ PARTE B
 Se entregan resultados expuestos en los distintos graficos de tiempo utilizando datos tipo float:
 ![Grafico General Parte B (float)](https://user-images.githubusercontent.com/88356329/130283653-17869ea6-5f1a-4140-922b-6be36516e46b.png)
 
-En el caso de analisis de graficos obtenidos en el apartado B, podemos concluir que el proceso que mas tardo fue en el segundo caso y tercer grafico donde se utilizaron driver "ev" con tiempos de carga superiores a los 18 segundos en el caso de matrices de 4000X4000, por otro lado al emplear el overwrite_a = False se obtuvieron mejores resultados disminuyendo levemente los tiempos de procesamiento con respecto al overwrite_a = True.
+En el caso de analisis de graficos obtenidos en el apartado B, podemos concluir que el proceso que mas tardo fue en el segundo caso y tercer grafico donde se utilizaron driver "ev" con tiempos de carga superiores a los 18 segundos en el caso de matrices de 4000X4000, mientras que utilizando el driver "evd" resultaron en graficos con menores tiempos de carga , por otro lado al emplear el overwrite_a = True se obtuvieron mejores resultados disminuyendo levemente los tiempos de procesamiento con respecto al overwrite_a = False.
+
+Por ultimo realizando una comparacion entre los procesos utilizando datos tipo flout o double se obtuvo lo siguiente:
+![comparacion graficos double y flout](https://user-images.githubusercontent.com/88356329/130286533-a9dd3cd2-3aff-40a0-a49f-47fafc6494b8.png)
+
+En el caso del apartado A podemos ver como varian los resultados al cambiar entre los datos tipo float y los datos tipo double, lograndose mayores tiempos de carga en el caso de los datos tipo double. Esto se debe a que double al significar un float 64 se requiere una mayor cantidad de memoria, por lo que el pc demora mas en realizar los procesos requeridos en python, demostrandose asi en los graficos anterior con procesos identicos en ambos casos.
+
+En el caso del desempeño se logro generar una matriz máxima de 4000x4000 tanto para los casos de eigh como para solve, no se logra llegar a una de 10000x10000 ya que el rendimiento de mi computador no permite que esto ocurra en menos de 2 minuto. Por otro lado al ver los graficos en general se puede presenciar como aumenta constantemente el tiempo de ejecucion a medida que crecen las matrices.
+
+Finalmente a modo de conclusion y respondiendo las preguntas de esta entrega podemos notar que los mejores resultados y con mejores tiempos de carga fueron para el caso de scipy.linalg.solve utilizando el parametro asumme_a = "pos" y para el apartado B fue utilizando el driver "evd" con el parametro overwrite_a = True. De igual manera todos los procesos y los tiempos de carga dependen exclusivamente en el tamaño de la matriz a calcular y el proceso involucrado. La diferencia en cada una de las opciones se deben al numero de acciones que realiza el pc en cada una de estas, las cuales difieren del set up por deafult. Tambien es necesario mencionar que en estos procesos y corridas el pc utiliza siempre los 4 procesadores (en mi caso son 4).
 
 
-
-Haga un comentario completo respecto de todo lo que ve en términos de desempeño en cada problema.
-Desempeño timing solve: para este caso se logo generar una matriz máxima de 2000x2000, no se ogra llegar a una de 10000x10000 ya que el rendimiento de mi computador no permite que esto ocurra en menos de 2 minutos.
-Desempeño timing eigh float y double: para este caso se logo generar una matriz máxima de 800x800, no se ogra llegar a una de 10000x10000. Se puede ver que este es más rápido que el desempeño de eigh double.
-¿Como es la variabilidad del tiempo de ejecución para cada algoritmo?
-Tiene un incremento exponencial a medida que aumentan las matrices.
-¿Qué algoritmo gana (en promedio) en cada caso?
-Desempeño timing solve: A_invB_soSolve_pos, la cual es la matriz definida positiva.
-Desempeño timing eigh float: A_eigh_caso_5_T la cual tiene overwrite_a=True y driver="evd"
-Desempeño timing eigh double: : A_eigh_caso_7_T la cual tiene overwrite_a=True y driver="evr
-¿Depende del tamaño de la matriz?
-Si depende del tamaño de la matriz, ya que a mayor matriz el desempeño será “peor”.
-¿A que se puede deber la superioridad de cada opción?
-Se debe a la cantidad de acciones que se le pide a cada opción, las cuales difieren del set up por default.
-¿Su computador usa más de un proceso por cada corrida?
-Si, utiliza los cuatro procesadores.
