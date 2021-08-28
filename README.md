@@ -114,7 +114,7 @@ Se presentan los gráficos obtenidos de tiempo de ensamblaje y de solución vs t
 ![Grafico Matriz Dispersa](https://user-images.githubusercontent.com/88356329/131200039-b16c2d1a-afb9-467c-bed7-ef0c95418b9f.png)
 
 
-Podemos ver que para el caso del tiempo de ensamblaje de matrices llenas, al presentar un orden mayor, significa que tiene una mayor complejidad que las matrices dispersas. Por otro lado analizando el grafico de las matrices dispersas se mostro que el desempeño del algoritmo no depende tanto del tamaño, ya que al ser una matriz dispersa el programa utiliza muy poco memoria y recursos , por lo que al tener un algoritmo bien optimizado con matrices dispersas los tiempos de respusta son menores.
+Podemos ver que para el caso del tiempo de ensamblaje de matrices llenas, al presentar un orden mayor, significa que tiene una mayor complejidad que las matrices dispersas. Por otro lado analizando el grafico de las matrices dispersas se mostro que el desempeño del algoritmo no depende tanto del tamaño, ya que al ser una matriz dispersa el programa utiliza una baja cantidad de memoria y recursos , por lo que al tener un algoritmo bien optimizado con matrices dispersas los tiempos de respusta son menores.
 
 ```
 def laplaciana_llena(N,t=np.double):
