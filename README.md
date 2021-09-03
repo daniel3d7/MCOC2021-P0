@@ -105,4 +105,38 @@ En el caso del desempeño se logro generar una matriz máxima de 4000x4000 tanto
 
 Finalmente a modo de conclusion y respondiendo las preguntas de esta entrega podemos notar que los mejores resultados y con mejores tiempos de carga fueron para el caso de scipy.linalg.solve utilizando el parametro asumme_a = "pos" y para el apartado B fue utilizando el driver "evd" con el parametro overwrite_a = True. De igual manera todos los procesos y los tiempos de carga dependen exclusivamente en el tamaño de la matriz a calcular y el proceso involucrado. La diferencia en cada una de las opciones se deben al numero de acciones que realiza el pc en cada una de estas, las cuales difieren del set up por deafult. Tambien es necesario mencionar que en estos procesos y corridas el pc utiliza siempre los 4 procesadores (en mi caso son 4).
 
+# Matrices Dispersas y Complejidad Computacional (Entrega 5)
+
+Se presentan los gráficos obtenidos de tiempo de ensamblaje y de solución vs tamaño de matriz a continuación:
+
+
+![Grafico Matriz Llena](https://user-images.githubusercontent.com/88356329/131200036-b5717cc4-9111-40fe-93df-7c5e6f1b194d.png)
+![Grafico Matriz Dispersa](https://user-images.githubusercontent.com/88356329/131200039-b16c2d1a-afb9-467c-bed7-ef0c95418b9f.png)
+
+
+Podemos ver que para el caso del tiempo de ensamblaje de matrices llenas, al presentar un orden mayor, significa que tiene una mayor complejidad que las matrices dispersas. Por otro lado analizando el grafico de las matrices dispersas se mostro que el desempeño del algoritmo no depende tanto del tamaño, ya que al ser una matriz dispersa el programa utiliza una baja cantidad de memoria y recursos , por lo que al tener un algoritmo bien optimizado con matrices dispersas los tiempos de respusta son menores.
+
+```
+def laplaciana_llena(N,t=np.double):
+    A=np.identity(N,t)*2
+    for i in range(N):
+        for j in range (N):
+            if i+1==j:
+                A[i,j]=-1
+            if i-1==j:
+                A[i,j]=-1
+    return A
+    
+def laplaciana_dispersa(N,t=np.double):
+    A=lil_matrix((N,N))
+    for i in range(N):
+        for j in range (N):
+            if i==j:
+                A[i,j]=2
+            if i+1==j:
+                A[i,j]=-1
+            if i-1==j:
+                A[i,j]=-1
+    return csc_matrix(A)    
+```
 
