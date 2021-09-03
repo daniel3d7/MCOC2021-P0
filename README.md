@@ -140,3 +140,45 @@ def laplaciana_dispersa(N,t=np.double):
     return csc_matrix(A)    
 ```
 
+
+# Matrices Dispersas y Complejidad Computacional Parte 2 (Entrega 6)
+
+Se presentan los gráficos obtenidos de tiempo de ensamblaje y de solución vs tamaño de matriz llena y dispersa para el caso de la inversa a continuación:
+
+![Grafico Matriz Llena Inv](https://user-images.githubusercontent.com/88356329/132068146-3d169296-5042-434a-aa7e-82b360e1905d.png)
+![Grafico Matriz Dispersa Inv](https://user-images.githubusercontent.com/88356329/132068379-b52369ad-0772-433e-b219-a92d539be9a3.png)
+
+Podemos notar que las principales diferencias acerca del comportamiento de la matriz llena y la dispersa es que la matriz llena tiene un desempeño mas lento, principalmente en la parte de solucion del problema en donde se ve un incremento de tiempo significativo a medida que aumenta en tamaño de la matriz. Por otra parte se puede ver como el tiempo de ensamblado es similar para ambos casos, en cambio el tiempo se solución tiene mayores variaciones. 
+
+Se presentan los gráficos obtenidos de tiempo de ensamblaje y de solución vs tamaño de matriz llena y dispersa utilizando solve a continuación:
+
+![Grafico Matriz Llena Solve](https://user-images.githubusercontent.com/88356329/132069362-49b54554-d75b-4aeb-8789-14dd9458d154.png)
+![Grafico Matriz Dispersa Solve](https://user-images.githubusercontent.com/88356329/132069370-29c792bf-b532-49c2-86f3-eb13abdcbb96.png)
+
+En el caso del comportamiento para las matrices utilizando solve, se puede ver que el tiempo de ensamblado es similar para ambos casos, en cambio el tiempo se solución tiene mayores variaciones. Además, para el caso de matriz llena, se ven discontinuidades a lo largo de las corridas. 
+
+Por otro lado es importante mencionar que se puede ver como la matriz dispersa es capaz de porcesar matrices de mucho mayor tamaño, llegando hasta la solucion de N = 5000 de manera mucho mas rapida.
+
+Analizando la complejidad asintotica para N → ∞ podemos decir que en el caso Solv el tiempo de ensamblado tiende hacia 0(N^2) desde O(N), al igual que el tiempo de solucion esto se debe ya que al tener matriz llena de mayor tamaño el programa utilizara mucha mas memoria ya que tendra que recorrer la matriz con mayor cantidad de ceros. Para el caso de la matriz dispersa se aprecia un comportamiento mucho mas centrado hacia O(N) tanto para el tiempo de ensamblado como para el de solucion. Esto se produce que que al tener matrices dispersas los tiempos de ensamblado y solucion tienen aumentos mucho menos exponenciales que las matrices lenas ya que se recorren de una manera mucho mas eficiente.
+
+Por otro lado si revisamos los graficos correspondientes a los casos Inv podemos decir que en el caso del tiempo de ensamblado se puede ver un comportamiento de complejidad asintótica correspondiente a O(N2), para ambos casos. Para el tiempo de solución se puede ver un comportamiento de complejidad asintótica correspondiente a O(N) para la matriz dispersa y O(N2) para la matriz llena.
+
+Finalmente analizando el como afecta el tamaño de las matrices al comportamiento aparente tanto para las llenas como para las dispersas básicamente hace que se demore  logarítmicamente más a medida que se aumenta el tamaño, tal como se ha visto en las otras entregas. 
+
+Por otro lado para el caso de la estabilidad las corridas por lo general son estables, a excepción de la matriz llena que su comportamiento varia en el transcurso de las corridas siendo mas rapido o mas lento en ciertos casos. Esto se debe al proceso que ocurre al inciar el procesador, no así cuando este ya está procesando y le entra la misma tarea.
+
+A continuacion se adjunta al Readme el codigo de ensamblaje para la matriz Laplaciana tanto para la llena como para la dispersa:
+
+```
+def laplaciana_llena(N,t=np.double):
+    A=np.identity(N,t)*2
+    for i in range(N):
+        for j in range (N):
+            if i+1==j:
+                A[i,j]=-1
+            if i-1==j:
+                A[i,j]=-1
+    return A
+    
+```
+Podemos decir que esta manera de crear la matriz llena no es el la mas eficiente que existe pero se logra llevar a cabo bien el programa. De igual manera existen funciones que son mas efectivas reduciendo asi los tiempos de procesamiento.
